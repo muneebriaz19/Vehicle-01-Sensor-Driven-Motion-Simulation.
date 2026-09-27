@@ -1,63 +1,33 @@
-# Vehicle 1 – Sensor-Driven Motion Simulation
+# Vehicle 1: Sensor-Driven Motion Simulation
 
-This project is a simulation of **Vehicle 1**, inspired by *Braitenberg's Vehicles*. It's built in **Unreal Engine** and explores fundamental concepts in perception, motion, and artificial behavior using the simplest possible robot: one sensor, one motor, and a world with gradients (like temperature).
+A simulation of Braitenberg's Vehicle 1, built in Unreal Engine. Lab coursework from
+my MSc in Artificial Intelligence at BTU Cottbus-Senftenberg.
 
-## 📘 Concept
+Vehicle 1 is the simplest machine in Valentino Braitenberg's book *Vehicles:
+Experiments in Synthetic Psychology*. It has one sensor and one motor. The sensor
+reads a value from the environment, here a temperature gradient, and the motor turns
+at a speed proportional to that reading. Nothing steers it. It only goes faster in
+warm areas and slower in cold ones, and it keeps whatever direction it started with.
 
-**Vehicle 1** is a theoretical construct from Valentino Braitenberg’s book, *Vehicles: Experiments in Synthetic Psychology*. It consists of:
-- One **sensor** that detects an environmental variable (e.g., temperature).
-- One **motor** that drives the vehicle forward, with speed **proportional** to the sensor input.
+The point of the exercise is what an observer reads into that. A vehicle that speeds
+up near a heat source and crawls away from it looks like it wants something, even
+though there is no decision anywhere in the design, just one number driving one
+motor.
 
-The vehicle moves faster in warmer regions and slows down in colder areas. Since the sensor is unidirectional, it blindly follows whatever direction it was initially facing—creating the illusion of purpose or preference, even though its behavior is purely reactive.
+## What the simulation shows
 
-## 🎮 Project Features
+The environment has zones of different temperature. As the vehicle passes through
+them, its speed changes with the local reading. With friction switched on it moves
+irregularly at low sensor values, sometimes coming to a stop entirely. Without
+friction it keeps going and only varies its speed.
 
-- Accurate simulation of **sensor-motor coupling**
-- A dynamic environment with **temperature gradients**
-- Realistic **friction modeling** (e.g., motion decay in cold zones)
-- Custom **vehicle behavior** scripting mimicking Aristotelian physics
-- Simplified visuals and physics ideal for educational/demo use
+## Running it
 
-## 🌡 Behavior Summary
+You need Unreal Engine 5. Clone the repository, open `vehicle1.uproject`, and press
+Play. The behaviour is set up in Blueprints, so there is nothing to compile.
 
-| Condition         | Outcome                                        |
-|------------------|------------------------------------------------|
-| Warmer area      | Higher motor force, faster movement            |
-| Colder area      | Lower motor force, potential rest              |
-| No friction (outer space) | Continuous motion with variation       |
-| With friction (Earth) | Irregular, Brownian-like motion at low force |
+## Notes
 
-## 🧰 Requirements
-
-- Unreal Engine 5.x
-- Windows or MacOS
-- (Optional) Visual Studio for C++ compilation
-
-## 🚀 Running the Simulation
-
-1. Clone or download the project files.
-2. Open `vehicle1.uproject` using Unreal Engine.
-3. Press **Play** to run the simulation.
-4. Observe how the vehicle responds to different temperature zones.
-
-## 📷 Preview
-
-![Vehicle Diagram](./image.png)
-
-> *Figure 1: Vehicle 1. The speed of the motor (tail) is controlled by a front-facing sensor. Motion is forward, affected only by environment and friction.*
-
-## 🧠 Philosophical Context
-
-> "It is alive," you might say, seeing it roam aimlessly—yet consistently—toward warmer zones, much like primitive life forms that exhibit tropisms. Braitenberg uses such vehicles to challenge our assumptions about intelligence and behavior.
-
-## 🤝 Contributions
-
-This project is open for experimentation and extension. Want to simulate Vehicle 2 or add neural-style behavior? Fork it, mod it, and share your insights.
-
-## 📄 License
-
-[MIT License] or your preferred open-source license.
-
----
-
-> Inspired by *Braitenberg's Vehicles* — simple components, complex behavior.
+This is a lab exercise rather than a finished piece of software. The interesting part
+is the gap between how simple the mechanism is and how deliberate the movement looks
+from outside.
